@@ -3,14 +3,25 @@ package se.lisau.adventure_game;
 import java.util.Scanner;
 
 // huvudklass för spelet
+
 // hanterar spellogiken
+
 public class AdventureGame {
     // scanner-objekt för all UI
     private final Scanner sc;
+    private final NorthRoom nr;
+    private final SouthRoom sr;
+    private final EastRoom er;
+    private final WestRoom wr;
+
 
     // konstruktor för klassen AdventureGame
     public AdventureGame() {
         this.sc = new Scanner(System.in);
+        this.nr = new NorthRoom(sc);
+        this.sr = new SouthRoom(sc);
+        this.er = new EastRoom(sc);
+        this.wr = new WestRoom(sc);
     }
 
     // metod för att utnyttja scanner i andra klasser
@@ -52,98 +63,54 @@ public class AdventureGame {
         }
     }
 
+    // metod för att gå norr
     private String goNorth() {
-        System.out.println("In goNorth method");
+        System.out.println("Choice was go North -> calls for goNorth method");
+        System.out.println("Welcome to the North Room");
         String result = "";
-        boolean running = true;
-        while (running) {
-            System.out.println("Welcome to the North room");
-            System.out.println("Would you like to:");
-            System.out.println("A: stay");
-            System.out.println("B: go back to center");
-            String userInput = sc.nextLine().toLowerCase();
-            if (userInput.equals("a")) {
-                System.out.println("Staying...");
-            } else if (userInput.equals("b")) {
-                System.out.println("Going back to center...");
-                running = false;
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
-        }
+        System.out.println("Calls for roomTask-method in NorthRoom-class");
+        nr.roomTask();
         return result;
     }
 
+    // metod för att gå söder
     private String goSouth() {
+        System.out.println("Welcome to the South Room");
         String result = "";
-        boolean running = true;
-        while (running) {
-            System.out.println("Welcome to the South room");
-            System.out.println("Would you like to:");
-            System.out.println("A: stay");
-            System.out.println("B: go back to center");
-            String userInput = sc.nextLine().toLowerCase();
-            if (userInput.equals("a")) {
-                System.out.println("Staying...");
-            } else if (userInput.equals("b")) {
-                System.out.println("Going back to center...");
-                running = false;
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
-        }
+        sr.roomTask();
         return result;
     }
 
+    // metod för att gå öst
     private String goEast() {
+        System.out.println("Welcome to the East Room");
         String result = "";
-        boolean running = true;
-        while (running) {
-            System.out.println("Welcome to the East room");
-            System.out.println("Would you like to:");
-            System.out.println("A: stay");
-            System.out.println("B: go back to center");
-            String userInput = sc.nextLine().toLowerCase();
-            if (userInput.equals("a")) {
-                System.out.println("Staying...");
-            } else if (userInput.equals("b")) {
-                System.out.println("Going back to center");
-                running = false;
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
-        }
+        er.roomTask();
         return result;
     }
 
+    // metod för att gå väst
     private String goWest() {
+        System.out.println("Welcome to the West Room");
         String result = "";
-        boolean running = true;
-        while (running) {
-            System.out.println("Welcome to the West room");
-            System.out.println("Would you like to: ");
-            System.out.println("A: stay");
-            System.out.println("B: go back to center");
-            String userInput = sc.nextLine().toLowerCase();
-            if (userInput.equals("a")) {
-                System.out.println("Staying...");
-            } else if (userInput.equals("b")) {
-                System.out.println("Going back to center...");
-                running = false;
-            } else {
-                System.out.println("Invalid input. Try again.");
-            }
-        }
+        wr.roomTask();
         return result;
     }
-    public void havingEnteredRoom(){
 
-    }
 
     // metod för att stänga scanner
     public void closeScanner() {
         sc.close();
     }
+
 }
+
+
+
+
+
+
+
+
 
 

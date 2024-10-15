@@ -6,7 +6,5 @@ public class Main {
         game.menu();
         game.getDirections();
         game.closeScanner();
-
-
     }
 }
