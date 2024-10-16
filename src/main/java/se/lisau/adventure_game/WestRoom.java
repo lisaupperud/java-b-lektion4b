@@ -1,5 +1,6 @@
 package se.lisau.adventure_game;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class WestRoom implements Directions{
@@ -9,19 +10,50 @@ public class WestRoom implements Directions{
     }
 
     @Override
+    public void welcomeToRoom() {
+        System.out.println("Welcome to the West!");
+        System.out.println("In order to escape this room you will have to answer the following questions: ");
+    }
+
+    @Override
     public void roomTask() {
         boolean running = true;
+        System.out.println("How many kilos are 10 tons?");
+        int answer = 0;
         while (running) {
-            System.out.println("How many kilometers is one mile?");
-            double answer = sc.nextDouble();
-            sc.nextLine();
-            // behövs en try-catch ifall man trycker punkt istället för komma
-            if (answer == 1.6) {
-                System.out.println("Congratulations! You got it! You can now leave.");
-                running = false;
+            try {
+                answer = sc.nextInt();
+                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number.");
+                sc.nextLine();
+                continue;
+            }
+            if (answer == 10000) {
+                System.out.println("Congratulations! You got it! Next question: ");
+                System.out.println("How many meters is in 150 metric miles?");
+                boolean running2 = true;
+                while (running2) {
+                    try {
+                        answer = sc.nextInt();
+                        sc.nextLine();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Please enter a number.");
+                        sc.nextLine();
+                        continue;
+                    }
+                    if (answer == 150000) {
+                        System.out.println("Right answer! You can now leave.");
+                        running = false;
+                        running2 = false;
+                    } else {
+                        System.out.println("Wrong answer. Try again.");
+                    }
+                }
             } else {
                 System.out.println("Wrong answer. Try again.");
             }
+
 
         }
     }
