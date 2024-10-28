@@ -1,4 +1,4 @@
-package se.lisau.adventure_game;
+package se.lisau.adventuregame;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ public class WestRoom implements Directions{
     public void roomTask() {
         boolean running = true;
         System.out.println("How many kilos are 10 tons?");
-        int answer = 0;
+        int answer;
         while (running) {
             try {
                 answer = sc.nextInt();

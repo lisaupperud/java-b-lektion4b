@@ -1,50 +1,50 @@
-package se.lisau.adventure_game;
+package se.lisau.adventuregame;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class NorthRoom implements Directions {
+public class SouthRoom implements Directions {
     private final Scanner sc;
 
-    public NorthRoom(Scanner sc) {
+    public SouthRoom(Scanner sc) {
         this.sc = sc;
     }
 
     @Override
     public void welcomeToRoom() {
-        System.out.println("Welcome to the North!");
-        System.out.println("How are you math skills? Let's see...");
+        System.out.println("Welcome to South!");
+        System.out.println("Hope your geography skills are on point");
     }
 
     @Override
     public void roomTask() {
+        System.out.println("How many countries are fully or partially located in Europe?");
         boolean running = true;
         while (running) {
-            System.out.println("What is the square root of 49?");
-            double answer = 0;
-            try{
-                answer = sc.nextDouble();
+            int answer;
+            try {
+                answer = sc.nextInt();
                 sc.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a number!");
-                // rensar felaktig inmatning
+                System.out.println("Please enter a valid number");
                 sc.nextLine();
                 continue;
             }
-            if (answer == 7) {
-                System.out.println("Congratulations! But what is the square root of 7?\\n Answer with Integer, comma, 3 decimals");
+            if (answer == 50) {
+                System.out.println("Right answer, here is another one.");
+                System.out.println("How many of those countries have their capital cities on the European continent?");
                 boolean running2 = true;
                 while (running2) {
                     try {
-                        answer = sc.nextDouble();
+                        answer = sc.nextInt();
                         sc.nextLine();
                     } catch (InputMismatchException e) {
-                        System.out.println("Please enter a number!");
+                        System.out.println("Please enter a valid number");
                         sc.nextLine();
                         continue;
                     }
-                    if (answer == 2.645) {
-                        System.out.println("Impressive! You may now return to the start-point.");
+                    if (answer == 44) {
+                        System.out.println("That is correct!");
                         running = false;
                         running2 = false;
                     } else {
@@ -56,6 +56,6 @@ public class NorthRoom implements Directions {
             }
 
         }
+
     }
 }
-

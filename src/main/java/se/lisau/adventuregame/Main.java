@@ -1,10 +1,10 @@
-package se.lisau.adventure_game;
+package se.lisau.adventuregame;
 
 public class Main {
     public static void main(String[] args) {
         AdventureGame game = new AdventureGame();
-        game.menu();
         game.getDirections();
         game.closeScanner();
     }
 }
+
