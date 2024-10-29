@@ -9,7 +9,7 @@ public class Fight {
     Creature seaSnake = new Monster("SeaSnake", 100, 20);
     Creature troll = new Monster("Troll", 100, 15);
     Creature scorpion = new Monster("Scorpion", 100, 10);
-    boolean fight;
+    private boolean fight;
 
 
     public void executeAttack(Creature attacker, Creature defender) {
@@ -49,6 +49,7 @@ public class Fight {
                 fightOneRound(player, jeti);
                 if (!jeti.isAlive()) {
                     restoreHealth(player);
+                    returnAfterFight();
                 }
             } else {
                 fight = false;
@@ -66,6 +67,7 @@ public class Fight {
                 fightOneRound(player, seaSnake);
                 if (!seaSnake.isAlive()) {
                     restoreHealth(player);
+                    returnAfterFight();
                 }
             } else {
                 fight = false;
@@ -83,6 +85,7 @@ public class Fight {
                 fightOneRound(player, troll);
                 if (!troll.isAlive()) {
                     restoreHealth(player);
+                    returnAfterFight();
                 }
             } else {
                 fight = false;
@@ -99,6 +102,7 @@ public class Fight {
                 fightOneRound(player, scorpion);
                 if (!scorpion.isAlive()) {
                     restoreHealth(player);
+                    returnAfterFight();
                 }
             } else {
                 fight = false;
@@ -142,8 +146,7 @@ public class Fight {
 
     public void restoreHealth(Player player) {
         player.setHealth(100);
-        System.out.println(player.getName() + " health has returned to full");
-        System.out.println("Current health: " + player.getHealth());
+        System.out.println(player.getName() + " health has returned to " + player.getHealth());
 
     }
 
@@ -156,6 +159,9 @@ public class Fight {
         if (!monster.isAlive()){
             monster.setHealth(100);
         }
+    }
+    public void returnAfterFight(){
+        System.out.println("---returning---");
     }
 
 }

@@ -49,8 +49,8 @@ public class AdventureGame {
     // metod för att låta användaren välja väderstreck
     public void getDirections() {
         printWelcomeMenu();
-        boolean running = true;// variabel för while-loopen
-        while (running) {
+        boolean runningGetDirections = true;// variabel för while-loopen
+        while (runningGetDirections) {
             townCentre();
             System.out.println("go north");
             System.out.println("go south");
@@ -65,7 +65,7 @@ public class AdventureGame {
                 case "go east" -> goEast();
                 case "go west" -> goWest();
                 case "quit" -> {
-                    running = false;
+                    runningGetDirections = false;
                     System.out.println("Exiting game...");
                 }
                 default -> System.out.println("Invalid input. Try again.");
