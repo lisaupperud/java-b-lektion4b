@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class NorthRoom implements Directions {
     private final Scanner sc;
-    private final Fight fight = new Fight();
+    // borde monster deklareras i rummet dem tillhör?
+    // Creature jeti = new Monster("Jeti", 100, 25);
 
     public NorthRoom(Scanner sc) {
         this.sc = sc;
@@ -15,18 +16,17 @@ public class NorthRoom implements Directions {
     @Override
     public void welcomeToRoom() {
         System.out.println("Welcome to the North!");
-        System.out.println("A big Jeti is waiting for you. By answering these questions right you will receive a weapon to kill the Jeti");
-        System.out.println("and get back to the Town Center");
+        System.out.println("A big Jeti is waiting for you. \n By answering these questions right you will receive a weapon to kill the Jeti and get back to the Town Centre");
     }
 
     @Override
     public void roomTask() {
         boolean running = true;
         while (running) {
-            System.out.println("What is the square root of 49?");
-            double answer;
-            try{
-                answer = sc.nextDouble();
+            System.out.println("At what temperature does ice melt in Celsius?");
+            int answer;
+            try {
+                answer = sc.nextInt();
                 sc.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number!");
@@ -34,19 +34,19 @@ public class NorthRoom implements Directions {
                 sc.nextLine();
                 continue;
             }
-            if (answer == 7) {
-                System.out.println("Congratulations! But what is the square root of 7?\n Answer with Integer, comma, 3 decimals");
+            if (answer == 0) {
+                System.out.println("Congratulations! But at what temperature does ice melt in Fahrenheit?");
                 boolean running2 = true;
                 while (running2) {
                     try {
-                        answer = sc.nextDouble();
+                        answer = sc.nextInt();
                         sc.nextLine();
                     } catch (InputMismatchException e) {
                         System.out.println("Please enter a number!");
                         sc.nextLine();
                         continue;
                     }
-                    if (answer == 2.645) {
+                    if (answer == 32) {
                         running = false;
                         running2 = false;
                     } else {

@@ -3,8 +3,9 @@ package se.lisau.adventuregame;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class WestRoom implements Directions{
+public class WestRoom implements Directions {
     private final Scanner sc;
+
     public WestRoom(Scanner sc) {
         this.sc = sc;
     }
@@ -12,38 +13,39 @@ public class WestRoom implements Directions{
     @Override
     public void welcomeToRoom() {
         System.out.println("Welcome to the West!");
-        System.out.println("In order to escape this room you will have to answer the following questions: ");
+        System.out.println("A big Scorpion is upset that you're here and waiting to attack");
+        System.out.println("...answer the following question to receive your weapon");
     }
 
     @Override
     public void roomTask() {
         boolean running = true;
-        System.out.println("How many kilos are 10 tons?");
-        int answer;
+        System.out.println("What is the hottest recorded temperature in the Lut Desert?\n Answer in Celsius with one decimal");
+        double answer;
         while (running) {
             try {
-                answer = sc.nextInt();
+                answer = sc.nextDouble();
                 sc.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number.");
                 sc.nextLine();
                 continue;
             }
-            if (answer == 10000) {
+            if (answer == 70.7) {
                 System.out.println("Congratulations! You got it! Next question: ");
-                System.out.println("How many meters is in 150 metric miles?");
+                System.out.println("What is the lowest temperature recorded at night in the Lut Desert?\n Answer in Celsius");
                 boolean running2 = true;
                 while (running2) {
                     try {
-                        answer = sc.nextInt();
+                        answer = sc.nextDouble();
                         sc.nextLine();
                     } catch (InputMismatchException e) {
                         System.out.println("Please enter a number.");
                         sc.nextLine();
                         continue;
                     }
-                    if (answer == 150000) {
-                        System.out.println("Right answer! You can now leave.");
+                    if (answer == -20) {
+                        System.out.println("Right answer!");
                         running = false;
                         running2 = false;
                     } else {

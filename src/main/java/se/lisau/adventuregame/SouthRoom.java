@@ -13,12 +13,13 @@ public class SouthRoom implements Directions {
     @Override
     public void welcomeToRoom() {
         System.out.println("Welcome to South!");
-        System.out.println("Hope your geography skills are on point");
+        System.out.println("You've upset the Sea Snake by coming here...");
+        System.out.println("... get ready");
     }
 
     @Override
     public void roomTask() {
-        System.out.println("How many countries are fully or partially located in Europe?");
+        System.out.println("How much of the Earth's surface is covered in ocean?\n Answer in %");
         boolean running = true;
         while (running) {
             int answer;
@@ -30,9 +31,9 @@ public class SouthRoom implements Directions {
                 sc.nextLine();
                 continue;
             }
-            if (answer == 50) {
+            if (answer == 71) {
                 System.out.println("Right answer, here is another one.");
-                System.out.println("How many of those countries have their capital cities on the European continent?");
+                System.out.println("How deep is the Mariana Trench in meters?");
                 boolean running2 = true;
                 while (running2) {
                     try {
@@ -43,7 +44,7 @@ public class SouthRoom implements Directions {
                         sc.nextLine();
                         continue;
                     }
-                    if (answer == 44) {
+                    if (answer == 11034) {
                         System.out.println("That is correct!");
                         running = false;
                         running2 = false;

@@ -1,17 +1,20 @@
 package se.lisau.adventuregame.model;
 
 public abstract class Creature {
-    private String name;
+    private final String name;
     private int health;
     private int damage;
+
     public Creature(String name, int health, int damage) {
         this.name = name;
         this.health = health;
         this.damage = damage;
     }
+
     public String getName() {
         return name;
     }
+
     public int getHealth() {
         return health;
     }
@@ -23,6 +26,7 @@ public abstract class Creature {
     public int getDamage() {
         return damage;
     }
+
     public void setDamage(int damage) {
         this.damage = damage;
     }
@@ -31,15 +35,12 @@ public abstract class Creature {
         health -= damage;
     }
 
-    public void attack(Creature toAttack){
+    public void attack(Creature toAttack) {
         toAttack.takeDamage(damage);
     }
-    public boolean isAlive(){
-        if (health > 0){
-            return true;
-        } else{
-            return false;
-        }
+
+    public boolean isAlive() {
+        return health > 0;
     }
 }
 

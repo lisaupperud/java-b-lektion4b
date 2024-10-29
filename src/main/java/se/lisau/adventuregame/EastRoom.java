@@ -2,9 +2,10 @@ package se.lisau.adventuregame;
 
 import java.util.Scanner;
 
-public class EastRoom implements Directions{
+public class EastRoom implements Directions {
     private final Scanner sc;
-    public EastRoom(Scanner sc){
+
+    public EastRoom(Scanner sc) {
         this.sc = sc;
     }
 
@@ -17,19 +18,18 @@ public class EastRoom implements Directions{
     @Override
     public void roomTask() {
         boolean running = true;
-        System.out.println("Is Matterhorn the tallest mountain in the Alps? Y/N");
+        System.out.println("Is the California Redwood the tallest trees in the world? Y/N");
         while (running) {
             String answer = sc.nextLine().toLowerCase();
             if (answer.equals("n")) {
-                System.out.println("Correct!\n You're halfway up!\n Which is the tallest mountain in the Alps?");
+                System.out.println("Correct!\n Which is the tallest trees in the world?");
                 boolean running2 = true;
                 while (running2) {
                     answer = sc.nextLine().toLowerCase();
-                    if (answer.equals("mont blanc")) {
-
+                    if (answer.equals("hyperion")) {
                         running = false;
                         running2 = false;
-                    } else{
+                    } else {
                         System.out.println("Wrong answer. Try again.");
                     }
                 }

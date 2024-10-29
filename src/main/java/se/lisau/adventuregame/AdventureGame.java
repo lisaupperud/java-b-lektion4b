@@ -16,8 +16,8 @@ public class AdventureGame {
     private final SouthRoom sr;
     private final EastRoom er;
     private final WestRoom wr;
-    private static final String NORTH = "north";
-    private static final String SOUTH = "south";
+    private static final String NORTH = "north"; // behöver inte vara static
+    private static final String SOUTH = "south"; // kan vara lokala variabler i resp. metod
     private static final String EAST = "east";
     private static final String WEST = "west";
     private static final String TOWN_CENTRE = "town centre";
@@ -92,13 +92,12 @@ public class AdventureGame {
     private void goNorth() {
         if (currentLocation.equals(TOWN_CENTRE)) {
             System.out.println("---going north---");
-            //System.out.println("Choice was go North -> calls for goNorth method");
-            System.out.println("...you're going a dark room...");
-            System.out.println("...the walls are lit up with questionmarks...");
+            System.out.println("...you're met with a snowstorm...");
+            System.out.println("...a big wall of ice towers before you...");
             nr.welcomeToRoom();
-            //System.out.println("Calls for roomTask-method in NorthRoom-class");
             nr.roomTask();
             fight.fightJetiInNorthRoom(currentPlayer);
+            fight.resetPlayerDamage(currentPlayer);
             currentLocation = NORTH;
         } else {
             wrongWay();
@@ -115,7 +114,8 @@ public class AdventureGame {
             System.out.println("...the boat hits land...");
             sr.welcomeToRoom();
             sr.roomTask();
-            fight.fightSnakeInSouthRoom(currentPlayer);
+            fight.fightSeaSnakeInSouthRoom(currentPlayer);
+            fight.resetPlayerDamage(currentPlayer);
             currentLocation = SOUTH;
         } else {
             wrongWay();
@@ -131,6 +131,7 @@ public class AdventureGame {
             er.welcomeToRoom();
             er.roomTask();
             fight.fightTrollInEastRoom(currentPlayer);
+            fight.resetPlayerDamage(currentPlayer);
             currentLocation = EAST;
         } else {
             wrongWay();
@@ -148,6 +149,7 @@ public class AdventureGame {
             wr.welcomeToRoom();
             wr.roomTask();
             fight.fightScorpionInWestRoom(currentPlayer);
+            fight.resetPlayerDamage(currentPlayer);
             currentLocation = WEST;
         } else {
             wrongWay();
